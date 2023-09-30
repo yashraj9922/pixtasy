@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pixtasy/reposnsive/mobile_screen_layout.dart';
 import 'package:pixtasy/reposnsive/responsive_layout_screen.dart';
@@ -6,7 +7,21 @@ import 'package:pixtasy/reposnsive/web_screen_layout.dart';
 import 'package:pixtasy/utils/colors.dart';
 
 void main() async {
-  await Firebase.initializeApp();
+  //initialising flutter Widgets
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();-->error in web App
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyAlMlx0pyEcnrAQElMPcOa7rGucWjakTMs",
+          appId: "1:646344959238:web:5cbfc2aaca391e330fea87",
+          messagingSenderId: "646344959238",
+          projectId: "pixtasy-998cb",
+          storageBucket: "pixtasy-998cb.appspot.com"),
+    );
+  } else {
+    await Firebase.initializeApp();
+  }
   runApp(const MyApp());
 }
 
