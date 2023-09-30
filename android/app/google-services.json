@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "646344959238",
+    "project_id": "pixtasy-998cb",
+    "storage_bucket": "pixtasy-998cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646344959238:android:b8735d1b379815920fea87",
+        "android_client_info": {
+          "package_name": "com.example.pixtasy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHMs5ovWJfIpsOftsIaWISVFZ_UmINocA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
