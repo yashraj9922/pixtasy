@@ -2,11 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:pixtasy/reposnsive/mobile_screen_layout.dart';
-import 'package:pixtasy/reposnsive/responsive_layout_screen.dart';
-import 'package:pixtasy/reposnsive/web_screen_layout.dart';
+import 'package:pixtasy/reponsive/mobile_screen_layout.dart';
+import 'package:pixtasy/reponsive/responsive_layout_screen.dart';
+import 'package:pixtasy/reponsive/web_screen_layout.dart';
 import 'package:pixtasy/screens/login_screen.dart';
-import 'package:pixtasy/screens/signup_screen.dart';
 import 'package:pixtasy/utils/colors.dart';
 
 void main() async {
@@ -67,12 +66,12 @@ class MyApp extends StatelessWidget {
               child: CircularProgressIndicator(color: primaryColor),
             );
           }
-          return const LoginScreen(); 
+          return const LoginScreen();
         },
         // stream: FirebaseAuth.instance.idTokenChanges(),
         // stream: FirebaseAuth.instance.userChanges(),
         stream: FirebaseAuth.instance.authStateChanges(),
-        //this method only runs when user signin or signout
+        //this method only runs when user sign in or sign out
       ),
     );
   }
