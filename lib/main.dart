@@ -37,16 +37,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pixtasy',
       // I wanted to use a dark theme functions but some to be overridden....use .copyWith()
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: mobileBackgroundColor,
-      ),
-      // home: const ResponsiveLayout(
-      //   mobileScreenLayout: MobileScreenLayout(),
-      //   webScreenLayout: WebScreenLayout(),
-      // ),
-      // home: const LoginScreen(),
-      // home: const SignUpScreen(),
-
+      theme: ThemeData.dark()
+          .copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
       home: StreamBuilder(
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
