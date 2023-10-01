@@ -5,6 +5,7 @@ import 'package:pixtasy/reposnsive/mobile_screen_layout.dart';
 import 'package:pixtasy/reposnsive/responsive_layout_screen.dart';
 import 'package:pixtasy/reposnsive/web_screen_layout.dart';
 import 'package:pixtasy/screens/login_screen.dart';
+import 'package:pixtasy/screens/signup_screen.dart';
 import 'package:pixtasy/utils/colors.dart';
 
 void main() async {
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
       //   mobileScreenLayout: MobileScreenLayout(),
       //   webScreenLayout: WebScreenLayout(),
       // ),
-      home: const LoginScreen(),
+      // home: const LoginScreen(),
+      home: const SignUpScreen(),
     );
   }
 }

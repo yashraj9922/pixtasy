@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixtasy/screens/signup_screen.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:pixtasy/utils/colors.dart';
 import 'package:pixtasy/widgets/text_field_input.dart';
@@ -46,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 64),
               // text field input for email
               TextFieldInput(
-                hintText: "Username",
+                hintText: "Enter your email",
                 textEditingController: _emailController,
                 textInputType: TextInputType.emailAddress,
               ),
