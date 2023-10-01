@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pixtasy/resources/auth_methods.dart';
+import 'package:pixtasy/screens/login_screen.dart';
 import 'package:pixtasy/utils/colors.dart';
 import 'package:pixtasy/utils/utils.dart';
 import 'package:pixtasy/widgets/text_field_input.dart';
@@ -57,7 +58,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (res != 'success') {
       return showSnackBar(res, context);
     } else {
-      // do nothing
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (builder) => const LoginScreen(),
+        ),
+      );
     }
   }
 

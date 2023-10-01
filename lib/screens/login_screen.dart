@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pixtasy/resources/auth_methods.dart';
 import 'package:pixtasy/screens/home_screen.dart';
+import 'package:pixtasy/screens/signup_screen.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:pixtasy/utils/colors.dart';
 import 'package:pixtasy/utils/utils.dart';
@@ -37,11 +38,12 @@ class _LoginScreenState extends State<LoginScreen> {
     if (res != 'success') {
       return showSnackBar(res, context);
     } else {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );
+      // This method of Navigation is not used as it does not preserved the User State i.e., when app is reopen again login screen is visible
+      // Navigator.of(context).pushReplacement(
+      //   MaterialPageRoute(
+      //     builder: (context) => const HomeScreen(),
+      // ),
+      // );
     }
   }
 
@@ -123,7 +125,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const Text("Don't have an account? "),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpScreen(),
+                        ),
+                      );
+                    },
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 8,
