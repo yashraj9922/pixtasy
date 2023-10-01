@@ -2,6 +2,9 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pixtasy/reponsive/mobile_screen_layout.dart';
+import 'package:pixtasy/reponsive/responsive_layout_screen.dart';
+import 'package:pixtasy/reponsive/web_screen_layout.dart';
 import 'package:pixtasy/resources/auth_methods.dart';
 import 'package:pixtasy/screens/login_screen.dart';
 import 'package:pixtasy/utils/colors.dart';
@@ -58,9 +61,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (res != 'success') {
       return showSnackBar(res, context);
     } else {
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (builder) => const LoginScreen(),
+          builder: (context) => const ResponsiveLayout(
+            mobileScreenLayout: MobileScreenLayout(),
+            webScreenLayout: WebScreenLayout(),
+          ),
         ),
       );
     }
@@ -165,7 +171,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: isLoading
                       ? const Center(
                           child: CircularProgressIndicator(
-                            color: Colors.white,
+                            color: primaryColor,
                           ),
                         )
                       : const Text("Sign up"),
@@ -175,6 +181,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Flexible(
                 flex: 1,
                 child: Container(),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: const Text(
+                      'Already have an account?',
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    ),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: const Text(
+                        ' Login.',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

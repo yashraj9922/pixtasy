@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pixtasy/reponsive/mobile_screen_layout.dart';
+import 'package:pixtasy/reponsive/responsive_layout_screen.dart';
+import 'package:pixtasy/reponsive/web_screen_layout.dart';
 import 'package:pixtasy/resources/auth_methods.dart';
 import 'package:pixtasy/screens/home_screen.dart';
 import 'package:pixtasy/screens/signup_screen.dart';
@@ -44,7 +47,24 @@ class _LoginScreenState extends State<LoginScreen> {
       //     builder: (context) => const HomeScreen(),
       // ),
       // );
+
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const ResponsiveLayout(
+            mobileScreenLayout: MobileScreenLayout(),
+            webScreenLayout: WebScreenLayout(),
+          ),
+        ),
+      );
     }
+  }
+
+  void navigateToSignUpScreen() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const SignUpScreen(),
+      ),
+    );
   }
 
   @override
@@ -125,13 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const Text("Don't have an account? "),
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const SignUpScreen(),
-                        ),
-                      );
-                    },
+                    onTap: navigateToSignUpScreen,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 8,
