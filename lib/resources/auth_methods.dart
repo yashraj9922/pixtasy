@@ -7,7 +7,7 @@ class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // sign up the user
+  // signing up the user
   Future<String> signUpUser({
     required String email,
     required String password,
@@ -59,6 +59,27 @@ class AuthMethods {
       //   } else if (err.code == 'weak-password') {
       //     res = 'Password should be at least 6 characters';
       //   }
+    } catch (err) {
+      res = err.toString();
+    }
+    return res;
+  }
+
+// logging in the user
+  Future<String> loginUser({
+    required String email,
+    required String password,
+  }) async {
+    String res = 'Some error occurred';
+
+    try {
+      if (email.isNotEmpty || password.isNotEmpty) {
+        await _auth.signInWithEmailAndPassword(
+            email: email, password: password);
+        res = 'success';
+      } else {
+        res = 'Please enter all the fields';
+      }
     } catch (err) {
       res = err.toString();
     }
